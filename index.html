@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAIN PAGE</title>
+  <link rel="stylesheet" href="/dist/main.css">
+  <script src="/dist/main.js" defer></script>
+</head>
+<body>
+  <menu id="main-menu" class="center">
+    <li><button data-fetchable="true" data-content="all">All students</button></li>
+    <li><button data-fetchable="true" data-content="house" data-house="gryffindor">Gryffindor</button></li>
+    <li><button data-fetchable="true" data-content="house" data-house="slytherin">Slytherin</button></li>
+    <li><button data-fetchable="true" data-content="house" data-house="hufflepuff">Hufflepuff</button></li>
+    <li><button data-fetchable="true" data-content="house" data-house="ravenclaw">Ravenclaw</button></li>
+    <li><a href="/favourites">Favorites</a></li>
+  </menu>
+
+  <table id="data-table" class="center">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Date of birth
+        </th>
+        <th>
+          House
+        </th>
+        <th>
+          Wizard
+        </th>
+        <th>
+          Ancestry
+        </th>
+        <th>
+          Is student/staff
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  <div id="modal"></div>
+</body>
+</html>

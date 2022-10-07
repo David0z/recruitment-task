@@ -1,0 +1,36 @@
+@mixin themeColor($color, $light: false) {
+  background-color: #{$color};
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1em #{$color}, 0 0 2em #{$color}, 0 0 3em #{$color};
+  }
+
+  @if $light {
+    color: $main-400;
+  }
+}
+
+#main-menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+
+  button, a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.4em 1em;
+    border-radius: $border;
+    transition: box-shadow 0.3s;
+  }
+
+  button {
+    @include themeColor($main-100);
+  }
+
+  a {
+    @include themeColor($secondary, true);
+  }
+}

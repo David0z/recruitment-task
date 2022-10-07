@@ -1,0 +1,27 @@
+#data-table {
+  width: 100%;
+  margin-top: 4rem;
+  border-spacing: 0;
+  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.25);
+  min-height: 60vh;
+  background-color: $main-300;
+  border-radius: $border;
+  overflow: hidden;
+
+  thead {
+    background-color: $main-200;
+  }
+
+  th, td {
+    text-align: left;
+    padding-left: .6rem;
+    padding-block: .6rem;
+  }
+
+  tbody {
+    tr:hover {
+      background-color: $main-100;
+      cursor: pointer;
+    }
+  }
+}

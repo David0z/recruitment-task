@@ -1,0 +1,49 @@
+$houses: 
+  "gryffindor" #660000 #E09C09,
+  "slytherin" #2F751C #CCCCCC,
+  "hufflepuff" #1F1E19 #FF9D0B,
+  "ravenclaw" #1A3956 #8E501D;
+
+#modal-overlay {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  background-color: rgba($main-400, 75%);
+  backdrop-filter: blur(0.25rem);
+
+  #modal-content {
+    display: grid;
+    position: relative;
+    grid-template-columns: 33% repeat(2, 1fr);
+    background-color: $main-400;
+    width: min(90%, 35rem);
+    border-radius: $border;
+    padding: 1rem;
+
+    @each $name, $col1, $col2 in $houses {
+      &.#{$name}::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        inset: -0.4rem;
+        border-radius: inherit;
+        background: repeating-linear-gradient(-45deg, #{$col1} 0 5%, #{$col2} 5% 10%);
+      }
+    }
+    
+    [data-main] {
+      grid-column: span 2;
+
+      p {
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    [data-other] {
+      grid-column: span 3;
+    }
+  }
+}

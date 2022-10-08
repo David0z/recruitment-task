@@ -4,6 +4,9 @@ $houses:
   "hufflepuff" #1F1E19 #FF9D0B,
   "ravenclaw" #1A3956 #8E501D;
 
+$column-template: 40% repeat(2, 1fr);
+$column-gap: 0.4rem;
+
 #modal-overlay {
   position: fixed;
   display: grid;
@@ -15,11 +18,22 @@ $houses:
   #modal-content {
     display: grid;
     position: relative;
-    grid-template-columns: 33% repeat(2, 1fr);
+    grid-template-columns: $column-template;
     background-color: $main-400;
-    width: min(90%, 35rem);
+    width: min(90%, 30rem);
     border-radius: $border;
     padding: 1rem;
+    gap: $column-gap;
+    box-shadow: 0 0 4rem rgba(#000, 0.35) inset;
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      inset: -0.4rem;
+      border-radius: inherit;
+      background-color: $main-100;
+    }
 
     @each $name, $col1, $col2 in $houses {
       &.#{$name}::after {
@@ -31,6 +45,30 @@ $houses:
         background: repeating-linear-gradient(-45deg, #{$col1} 0 5%, #{$col2} 5% 10%);
       }
     }
+
+    img {
+      border-radius: $border;
+      object-fit: cover;
+      object-position: 50% 0;
+      height: 15rem;
+      // aspect-ratio: 9 / 12;
+      width: 100%;
+    }
+
+    table, tbody {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: $column-template;
+      gap: $column-gap;
+
+      td:nth-child(2) {
+        grid-column: span 2;
+      }
+    }
     
     [data-main] {
       grid-column: span 2;
@@ -40,10 +78,41 @@ $houses:
         font-weight: bold;
         text-align: center;
       }
+      
+      tr {
+        td:nth-child(2) {
+          text-align: center;
+        }
+      }
     }
 
     [data-other] {
       grid-column: span 3;
+    }
+
+    button {
+      grid-column: span 3;
+      background-color: $main-100;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: $border;
+      padding-block: 0.2em;
+      margin-top: 2rem;
+
+      &[data-is-fav="true"] {
+        $warning: #E13737;
+        background-color: $warning;
+
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($warning, 5%);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: lighten($main-100, 5%);
+      }
     }
   }
 }

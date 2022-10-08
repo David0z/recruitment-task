@@ -24,4 +24,43 @@
       cursor: pointer;
     }
   }
+
+  [data-sortable] {
+    display: flex;
+    align-items: center;
+
+    span {
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+
+  .sort-btns {
+    margin-inline: auto;
+    display: grid;
+    gap: 0.4rem;
+
+    button {
+      display: block;
+      width: .8rem;
+      aspect-ratio: 22 / 15;
+      background-color: $main-100;
+
+      &.active {
+        background-color: $white;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &[data-sort="asc"] {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      &[data-sort="desc"] {
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+      }
+    }
+  }
 }

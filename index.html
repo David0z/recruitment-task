@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MAIN PAGE</title>
   <link rel="stylesheet" href="/dist/main.css">
-  <script src="/dist/main.js" defer></script>
+  <script src="/dist/main.js" defer type="module"></script>
 </head>
 <body>
   <menu id="main-menu" class="center">
@@ -22,13 +22,37 @@
     <thead>
       <tr>
         <th>
-          Name
+          <div data-sortable>
+            <span data-sort="toggle" data-sort-name="name">
+              Name
+            </span>
+            <div class="sort-btns">
+              <button data-sort="asc" data-sort-name="name"></button>
+              <button data-sort="desc" data-sort-name="name"></button>
+            </div>
+          </div>
         </th>
         <th>
-          Date of birth
+          <div data-sortable>
+            <span data-sort="toggle" data-sort-name="dateOfBirth">
+              Date of birth
+            </span>
+            <div class="sort-btns">
+              <button data-sort="asc" data-sort-name="dateOfBirth"></button>
+              <button data-sort="desc" data-sort-name="dateOfBirth"></button>
+            </div>
+          </div>
         </th>
         <th>
-          House
+          <div data-sortable>
+            <span data-sort="toggle" data-sort-name="house">
+              House
+            </span>
+            <div class="sort-btns">
+              <button data-sort="asc" data-sort-name="house"></button>
+              <button data-sort="desc" data-sort-name="house"></button>
+            </div>
+          </div>
         </th>
         <th>
           Wizard

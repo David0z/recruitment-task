@@ -9,3 +9,35 @@ body {
   padding-block: 2rem;
   background-color: $main-400;
 }
+
+button {
+  background-color: $main-100;
+}
+
+$houses: 
+  "gryffindor" #660000 #E09C09,
+  "slytherin" #2F751C #CCCCCC,
+  "hufflepuff" #1F1E19 #FF9D0B,
+  "ravenclaw" #1A3956 #8E501D;
+
+@mixin housesClasses($borderWidth: -0.4rem) {
+  &::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    inset: $borderWidth;
+    border-radius: inherit;
+    background-color: $main-100;
+  }
+
+  @each $name, $col1, $col2 in $houses {
+    &.#{$name}::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      inset: $borderWidth;
+      border-radius: inherit;
+      background: repeating-linear-gradient(-45deg, #{$col1} 0 5%, #{$col2} 5% 10%);
+    }
+  }
+}

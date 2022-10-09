@@ -84,6 +84,10 @@ body {
   background-color: #242633;
 }
 
+button {
+  background-color: #6B63B5;
+}
+
 .center {
   margin-inline: auto;
   max-width: min(90%, 55rem);

@@ -5,9 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAVOURITES</title>
-  <link rel="stylesheet" href="/dist/main.css">
+  <link rel="stylesheet" href="/dist/favourites.css">
+  <script src="../dist/favourites.js" defer></script>
 </head>
 <body>
-  <a href="/">BACK TO MAIN PAGE</a>
+  <main class="center">
+    <h1>Favourite Cards</h1>
+    <div id="menu" data-active="3">
+      <span>
+        Cards per row:
+      </span>
+      <button data-num="1">1</button>
+      <button data-num="3" class="active">3</button>
+      <button data-num="5">5</button>
+    </div>
+    <div id="cards" data-cols="3"></div>
+  </main>
 </body>
 </html>

@@ -1,0 +1,135 @@
+// GENERAL STYLINGS
+@import "_resets.scss";
+@import "_query.scss";
+@import "_variables.scss";
+@import "_general.scss";
+@import "_util-classes.scss";
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 500;
+  color: rgba($white, 0.5);
+}
+
+$padding: 0.6rem;
+
+#menu {
+  background-color: $main-300;
+  width: max-content;
+  padding: $padding;
+  border-radius: $padding $padding 0 0;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+
+  button {
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    $size: 2rem;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    border-radius: $border;
+
+    &.active {
+      background-color: $white;
+      color: $main-100;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+$cols: 1, 3 ,5;
+$col-gap: 1.5rem;
+$row-gap: 1.5rem;
+
+
+#cards {
+  background-color: $main-300;
+  min-height: 60vh;
+  border-radius: 0 $border $border $border;
+  padding: $padding;
+  display: grid;
+  grid-auto-rows: max-content;
+  justify-items: stretch;
+  column-gap: $col-gap;
+  row-gap: $row-gap;
+
+  @each $number in $cols {
+    &[data-cols="#{$number}"] {
+      grid-template-columns: repeat(#{$number}, 1fr);
+
+      @if $number == 1 {
+        .card {
+          width: min(20rem, 100%);
+          // change later
+          margin-inline: auto;
+        }
+      }
+    }
+  }  
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  border-radius: $border;
+  height: max-content;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 2rem $main-100;
+    z-index: 2;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 9 / 13;
+    object-fit: cover;
+    border-radius: $border $border 0 0;
+  }
+
+  p {
+    width: 100%;
+    background-color: $main-400;
+    text-align: center;
+    border-radius: 0 0 $border $border;
+    // font-size: calc(0.95vw + 0.1rem);
+  }
+
+  button {
+    position: absolute;
+    $offset: -0.5em;
+    top: $offset;
+    right: $offset;
+    $size: 2rem;
+    width: $size;
+    height: $size;
+    border-radius: $border;
+
+    &::after {
+      position: absolute;
+      content: '';
+      inset: 0;
+      background-color: $white;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      transform: scale(0.8);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $warning;
+    }
+  }
+
+  @include housesClasses(calc(min(#{$col-gap}, #{$row-gap}) * -0.15));
+}

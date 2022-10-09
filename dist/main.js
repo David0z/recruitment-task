@@ -1,5 +1,3 @@
-import { removeFromFavourites } from '/dist/favourites.js'
-
 if (!localStorage.getItem('hp-fav')) {
   localStorage.setItem('hp-fav', "[]");
 }
@@ -228,7 +226,7 @@ function openModal(personName) {
 
   modalOverlay.innerHTML = `
   <div id="modal-content" class="${personData.house.toLowerCase()}">
-    <img src="${personData.image}" alt="Character's picture" />
+    <img src="${personData.image ? personData.image : '/dist/hogwart.jpg'}" alt="Character's picture" />
     <div data-main>
       <p>${personData.name}</p>
       <table>
@@ -287,7 +285,7 @@ function openModal(personName) {
         </tr>
       </table>
     </div>
-    <button data-img="${personData.image}" data-name="${personData.name}" data-is-fav="${!!isFavourites}">${isFavourites ? 'Remove from favourites' : 'Add to favourites'}</button>
+    <button data-img="${personData.image}" data-name="${personData.name}" data-house="${personData.house}" data-is-fav="${!!isFavourites}">${isFavourites ? 'Remove from favourites' : 'Add to favourites'}</button>
   </div>
   `
   modal.append(modalOverlay);
@@ -303,6 +301,8 @@ function closeModal(e) {
 
 modal.addEventListener('click', closeModal)
 
+
+// ADD/REMOVE FROM FAVOURITES BUTTON HANDLER
 function favBtnClickHandler() {
   if (this.dataset.isFav === "true") {
     let favourites = JSON.parse(localStorage.getItem('hp-fav'));
@@ -318,7 +318,8 @@ function favBtnClickHandler() {
 
   favourites = [...favourites, {
     name: this.dataset.name,
-    image: this.dataset.img
+    image: this.dataset.img,
+    house: this.dataset.house
   }]
 
   localStorage.setItem('hp-fav', JSON.stringify(favourites));

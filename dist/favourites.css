@@ -98,6 +98,11 @@ h1 {
   font-weight: 500;
   text-align: center;
 }
+@media (max-width: 480px) {
+  h1 {
+    font-size: 9vw;
+  }
+}
 
 h2 {
   font-weight: 500;
@@ -112,6 +117,17 @@ h2 {
   display: flex;
   gap: 0.4rem;
   align-items: center;
+}
+@media (max-width: 480px) {
+  #menu {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 320px) {
+  #menu span {
+    font-size: 5vw;
+  }
 }
 #menu button {
   display: grid;
@@ -131,6 +147,8 @@ h2 {
 }
 
 #cards {
+  --row-gap: 1.5em;
+  --col-gap: 1.5em;
   background-color: #363553;
   min-height: 60vh;
   border-radius: 0 0.45em 0.45em 0.45em;
@@ -138,21 +156,46 @@ h2 {
   display: grid;
   grid-auto-rows: max-content;
   justify-items: stretch;
-  column-gap: 1.5rem;
-  row-gap: 1.5rem;
+  column-gap: var(--col-gap);
+  row-gap: var(--row-gap);
+}
+@media (max-width: 1024px) {
+  #cards {
+    font-size: 1.8vw;
+  }
+}
+@media (max-width: 480px) {
+  #cards {
+    border-radius: 0 0 0.45em 0.45em;
+  }
 }
 #cards[data-cols="1"] {
-  grid-template-columns: repeat(1, 1fr);
+  --row-gap: 1.5rem;
+  --col-gap: 1.5rem;
 }
 #cards[data-cols="1"] .card {
   width: min(20rem, 100%);
   margin-inline: auto;
 }
-#cards[data-cols="3"] {
-  grid-template-columns: repeat(3, 1fr);
+@media (max-width: 1024px) {
+  #cards[data-cols="1"] .card p {
+    font-size: 1rem;
+  }
 }
-#cards[data-cols="5"] {
-  grid-template-columns: repeat(5, 1fr);
+@media (max-width: 320px) {
+  #cards[data-cols="1"] .card p {
+    font-size: 5vw;
+  }
+}
+@media (max-width: 480px) {
+  #cards[data-cols="1"] .card button {
+    --size: 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  #cards[data-cols="1"] .card button {
+    --offset: -0.5rem;
+  }
 }
 
 .card {
@@ -161,6 +204,11 @@ h2 {
   border-radius: 0.45em;
   height: max-content;
   transition: box-shadow 0.3s;
+}
+@media (max-width: 1024px) {
+  .card {
+    font-size: 1em;
+  }
 }
 .card:hover {
   box-shadow: 0 0 2rem #6B63B5;
@@ -173,18 +221,32 @@ h2 {
   border-radius: 0.45em 0.45em 0 0;
 }
 .card p {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   background-color: #242633;
   text-align: center;
   border-radius: 0 0 0.45em 0.45em;
 }
+@media (max-width: 1024px) {
+  .card p {
+    font-size: 1.55vw;
+  }
+}
 .card button {
   position: absolute;
-  top: -0.5em;
-  right: -0.5em;
-  width: 2rem;
-  height: 2rem;
+  --offset: -0.5em;
+  top: var(--offset);
+  right: var(--offset);
+  --size: 2rem;
+  width: var(--size);
+  height: var(--size);
   border-radius: 0.45em;
+}
+@media (max-width: 480px) {
+  .card button {
+    --size: 6vw;
+  }
 }
 .card button::after {
   position: absolute;
@@ -202,7 +264,7 @@ h2 {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: calc(min(1.5rem, 1.5rem) * -0.15);
+  inset: calc(min(var(--col-gap), var(--row-gap)) * -0.15);
   border-radius: inherit;
   background-color: #6B63B5;
 }
@@ -210,7 +272,7 @@ h2 {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: calc(min(1.5rem, 1.5rem) * -0.15);
+  inset: calc(min(var(--col-gap), var(--row-gap)) * -0.15);
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #660000 0 5%, #E09C09 5% 10%);
 }
@@ -218,7 +280,7 @@ h2 {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: calc(min(1.5rem, 1.5rem) * -0.15);
+  inset: calc(min(var(--col-gap), var(--row-gap)) * -0.15);
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #2F751C 0 5%, #CCCCCC 5% 10%);
 }
@@ -226,7 +288,7 @@ h2 {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: calc(min(1.5rem, 1.5rem) * -0.15);
+  inset: calc(min(var(--col-gap), var(--row-gap)) * -0.15);
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #1F1E19 0 5%, #FF9D0B 5% 10%);
 }
@@ -234,7 +296,7 @@ h2 {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: calc(min(1.5rem, 1.5rem) * -0.15);
+  inset: calc(min(var(--col-gap), var(--row-gap)) * -0.15);
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #1A3956 0 5%, #8E501D 5% 10%);
 }

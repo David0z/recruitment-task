@@ -20,7 +20,7 @@ $houses:
   "hufflepuff" #1F1E19 #FF9D0B,
   "ravenclaw" #1A3956 #8E501D;
 
-@mixin housesClasses($borderWidth: -0.4rem) {
+@mixin housesClasses($borderWidth: -0.4em) {
   &::after {
     position: absolute;
     z-index: -1;

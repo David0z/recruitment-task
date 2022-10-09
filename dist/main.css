@@ -201,7 +201,7 @@ button {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: -0.4rem;
+  inset: -0.4em;
   border-radius: inherit;
   background-color: #6B63B5;
 }
@@ -209,7 +209,7 @@ button {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: -0.4rem;
+  inset: -0.4em;
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #660000 0 5%, #E09C09 5% 10%);
 }
@@ -217,7 +217,7 @@ button {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: -0.4rem;
+  inset: -0.4em;
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #2F751C 0 5%, #CCCCCC 5% 10%);
 }
@@ -225,7 +225,7 @@ button {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: -0.4rem;
+  inset: -0.4em;
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #1F1E19 0 5%, #FF9D0B 5% 10%);
 }
@@ -233,7 +233,7 @@ button {
   position: absolute;
   z-index: -1;
   content: "";
-  inset: -0.4rem;
+  inset: -0.4em;
   border-radius: inherit;
   background: repeating-linear-gradient(-45deg, #1A3956 0 5%, #8E501D 5% 10%);
 }

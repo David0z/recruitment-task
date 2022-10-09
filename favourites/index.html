@@ -11,7 +11,7 @@
 <body>
   <main class="center">
     <h1>Favourite Cards</h1>
-    <div id="menu" data-active="3">
+    <div id="menu">
       <span>
         Cards per row:
       </span>
@@ -19,7 +19,7 @@
       <button data-num="3" class="active">3</button>
       <button data-num="5">5</button>
     </div>
-    <div id="cards" data-cols="3"></div>
+    <div id="cards" data-cols="3" style="grid-template-columns: repeat(3, 1fr);"></div>
   </main>
 </body>
 </html>

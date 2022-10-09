@@ -29,6 +29,7 @@ menu.addEventListener('click', (e) => {
     numInRowElem = e.target;
     numInRowElem.classList.add('active');
     cardsContainer.dataset.cols = e.target.dataset.num;
+    cardsContainer.style.gridTemplateColumns = `repeat(${e.target.dataset.num}, 1fr)`
   }
 })
 

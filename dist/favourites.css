@@ -105,6 +105,10 @@ h1 {
 }
 
 h2 {
+  justify-self: center;
+  align-self: stretch;
+  grid-column: 1/-1;
+  height: 100%;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
 }

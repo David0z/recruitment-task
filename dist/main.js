@@ -293,7 +293,7 @@ function openModal(personName) {
   `
   modal.append(modalOverlay);
 
-  modalOverlay.querySelector('button').addEventListener('click', favBtnClickHandler)
+  modalOverlay.querySelector('#fav-btn').addEventListener('click', favBtnClickHandler)
 }
 
 function closeModal(e) {

@@ -226,6 +226,9 @@ function openModal(personName) {
 
   modalOverlay.innerHTML = `
   <div id="modal-content" class="${personData.house.toLowerCase()}">
+    <div id="btn-wrap">
+      <button id="close-modal"></button>
+    </div>
     <img src="${personData.image ? personData.image : '/dist/hogwart.jpg'}" alt="Character's picture" />
     <div data-main>
       <p>${personData.name}</p>
@@ -285,7 +288,7 @@ function openModal(personName) {
         </tr>
       </table>
     </div>
-    <button data-img="${personData.image}" data-name="${personData.name}" data-house="${personData.house}" data-is-fav="${!!isFavourites}">${isFavourites ? 'Remove from favourites' : 'Add to favourites'}</button>
+    <button id="fav-btn" data-img="${personData.image}" data-name="${personData.name}" data-house="${personData.house}" data-is-fav="${!!isFavourites}">${isFavourites ? 'Remove from favourites' : 'Add to favourites'}</button>
   </div>
   `
   modal.append(modalOverlay);
@@ -294,8 +297,8 @@ function openModal(personName) {
 }
 
 function closeModal(e) {
-  if (e.target.id === 'modal-overlay') {
-    e.target.remove();
+  if (e.target.id === 'modal-overlay' || e.target.id === 'close-modal') {
+    document.getElementById('modal-overlay').remove();
   }
 }
 

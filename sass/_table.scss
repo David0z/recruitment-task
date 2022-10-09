@@ -1,6 +1,23 @@
+#t-wrap {
+  margin-top: 4rem;
+  overflow: auto;
+  background-color: $main-300;
+  border-radius: $border;
+  
+  &::-webkit-scrollbar {
+    height: 1.4rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $main-100;
+    border-radius: 100vmax;
+    border: 0.4rem solid transparent;
+    background-clip: padding-box;
+  }
+}
+
 #data-table {
   width: 100%;
-  margin-top: 4rem;
   border-spacing: 0;
   box-shadow: 0 0 4rem rgba(0, 0, 0, 0.25);
   min-height: 60vh;
